@@ -20,7 +20,7 @@ def search_grades(word):
     with open('pupils.csv', encoding='UTF-8') as data:
         file_reader = csv.DictReader(data, delimiter=',')
         number = int(input('Введите порядковый номер, указанный выше перед фамилией ученика: '))
-        subject = input('Введите название предмета или слово "все", если хотите посмотреть оценки по всем предметам: ').capitalize()
+        subject = input('Введите полное название предмета или слово "все", если хотите посмотреть оценки по всем предметам: ').capitalize()
         count = 1
         if subject == 'Все':
             for line in file_reader:
