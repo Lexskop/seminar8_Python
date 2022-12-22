@@ -29,6 +29,14 @@ def add_grades(file,word):
         for line in file_reader:
             total +=1
             for i in ['Фамилия','Имя','Отчество','Класс']:
+                if word == '' and total == number:
+                    my_dict[total][subject] += f'{grade} '
+                    with open(file, 'w', encoding = 'UTF-8', newline='') as data:
+                        fields = ['Фамилия', 'Имя', 'Отчество', 'Класс', 'Литература', 'Русский язык', 'Математика', 'Физкультура', 'Информатика', 'Иностранный язык',\
+                                'Биология', 'Химия', 'История', 'География', 'Физика']
+                        writer = csv.DictWriter(data, fieldnames= fields)
+                        writer.writerows(my_dict)
+                        return
                 if word == line[i]:
                     count += 1
                 if count == number:
@@ -67,7 +75,16 @@ def change_info(file,word):
         file_reader = csv.DictReader(data, delimiter=',')
         for line in file_reader:
             total +=1
+            print(total)
             for i in ['Фамилия','Имя','Отчество','Класс']:
+                if word == '' and total == number:
+                    my_dict[total][column] = new_info
+                    with open(file, 'w', encoding = 'UTF-8', newline='') as data:
+                        fields = ['Фамилия', 'Имя', 'Отчество', 'Класс', 'Литература', 'Русский язык', 'Математика', 'Физкультура', 'Информатика', 'Иностранный язык',\
+                                'Биология', 'Химия', 'История', 'География', 'Физика']
+                        writer = csv.DictWriter(data, fieldnames= fields)
+                        writer.writerows(my_dict)
+                        return
                 if word == line[i]:
                     count += 1
                 if count == number:
