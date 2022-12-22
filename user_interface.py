@@ -32,7 +32,7 @@ def menu():
                 search_word(name)
                 add_grades('pupils.csv',name)
             elif choice == 4:
-                name = input('Введите фамилию имя или отчество ученика, по которому хотите получить информацию: ').capitalize()
+                name = input('Введите фамилию имя или отчество ученика, по которому хотите получить информацию или нажмите Enter для вывода всего списка: ').capitalize()
                 search_word(name)
                 search_grades(name)
         else:
